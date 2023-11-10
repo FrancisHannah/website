@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="style    sheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>COVID-19 DIAGNOSTIC FORM</title>
 </head>
 <body class="bg-success-subtle">
@@ -14,49 +14,66 @@
         </div>
         <div class="d-flex justify-content-center p-3 border border-success rounded-2">
             <form method="post" action="backend.php">
-                <div class="d-flex justify-content-center p-3">
-                    <p class="col-1 ">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name">
-                    </p>
-                    <p class="col-12 ">
-                        <label for="nationality">Nationality:</label>
-                        <input type="text" id="nationality" name="nationality" placeholder="Enter your nationality">
-                    <p>
+                <div class="d-flex justify-content-left p-3">
+                        <label class="p-2" for="name">Name:</label>
+                        <input class="p-2" type="text" id="name" name="name" placeholder="Enter your name">
+                        <label class=" p-2" for="nationality">Nationality:</label>
+                        <select class="col-sm-3 p-2" name="nationality" id="nationality">
+                            <option value="-1" selected disabled>Select One</option>
+                            <option value="1">Philippines</option>
+                            <option value="2">Others</option>
+                        </select>
                 </div>
 
                 <div class="d-flex justify-content-left p-3">
-                    <label for="gender">Gender:</label>
-                    <input type="radio" id="gender" name="gender">
-                    <input type="radio" id="gender" name="gender">
-                    <label for="age">Age:</label>
-                    <input type="number" id="age" placeholder="Enter your age">
-                    <label for="mobile_no">Mobile No.:</label>
-                    <input type="tel" id="mobile_no" placeholder="Enter your mobile number">
+                    <label class="p-2" for="gender">Gender:</label>
+                    <select class="p-2" name="gender" id="gender">
+                        <option value="-1" selected disabled>Select One</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                    <label class="p-2" for="age">Age:</label>
+                    <select class="p-2" name="age" id="age" required>
+                        <option value="-1" selected disabled>Select One</option>
+                        <option value="1">0 - 1 yr old</option>
+                        <option value="2">2 - 12 yrs old</option>
+                        <option value="3">13 - 17 yrs old</option>
+                        <option value="4">18+ years old</option>
+                        <option value="5">65+ yrs old</option>
+                    </select>
+                    <label class="p-2" for="mobile_no">Mobile No.:</label>
+                    <input class="p-2" type="tel" id="mobile_no" placeholder="Enter your mobile number">
                 </div>
 
                 <div class="d-flex justify-content-left p-3">
-                    <label for="body_temp">Body Temp:</label>
-                    <input class="col-sm-1" type="text" id="body_temp" placeholder="Enter your body temp in C">
-                    <label>COVID-19 DIAGNOSED: (<label for="diagnosed_yes">YES</label>/<label for="diagnosed_no">No</label>)</label>
-                    <label for="diagnosed_yes">Yes</label>
-                    <input type="radio" id="diagnosed_yes" name="diagnosed">
-                    <label for="diagnosed_no">No</label>
-                    <input type="radio" id="diagnosed_no" name="diagnosed">
-                    <label>COVID-19 encounter: (<label for="encounter_yes">YES</label>/<label for="encounter_no">NO</label>)</label>
-                    <label for="encounter_yes">Yes</label>
-                    <input type="radio" id="encounter_yes" name="encounter">
-                    <label for="encounter_no">No</label>
-                    <input type="radio" id="encounter_no" name="encounter">
-                    <label>VACINATED: (<label for="vaccinated_yes">YES</label>/<label for="vaccinated_no">No</label>)</label>
-                    <label for="vaccinated_yes">Yes</label>
-                    <input type="radio" id="vaccinated_yes" name="vaccinated">
-                    <label for="vaccinated_no">No</label>
-                    <input type="radio" id="vaccinated_no" name="vaccinated">
+                    <label class="p-2" for="body_temp">Body Temp:</label>
+                    <input class="p-2" type="text" id="body_temp" placeholder="Enter your body temp in C">
+                    <label class="p-2" for="diagnosed">COVID-19 DIAGNOSED:</label>
+                    <select class="p-2" name="diagnosed" id="diagnosed">
+                        <option value="-1" selected disabled>Select One</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                    </select>
+                    <label class="p-2" for="encounter">COVID-19 Encounter:</label>
+                    <select class="p-2" name="encounter" id="encounter">
+                        <option value="-1" selected disabled>Select One</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                    </select>
+                    <label class="p-2" for="vaccinated  ">COVID-19 Vaccinated:</label>
+                    <select class="p-2" name="vaccinated" id="vaccinated">
+                        <option value="-1" selected disabled>Select One</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                    </select>
+                </div>
+
+                <div>
+                    
                 </div>
 
                 <div class="d-flex justify-content-center p-3">
-                    <input type="submit" id="submit">
+                    <button class="btn btn-success" type="submit" id="submit">Save</button>
                 </div>
             </form>
         </div>
