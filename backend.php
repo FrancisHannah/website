@@ -1,14 +1,14 @@
 <?php
 $name = $_POST['name'];
-if (empty($name)) {
-  echo "Name is empty";
-} else {
-  echo "Your name is $name<br>";
-}
 $nationality = $_POST['nationality'];
-if (empty($name)) {
-  echo "Name is empty";
-} else {
-  echo "Your nationality is $nationality <br>";
-}
+$gender = $_POST['gender'];
+$age = $_POST['age'];
+$mobile_no = $_POST['mobile_no'];
+$body_temp = $_POST['body_temp'];
+$diagnosed = $_POST['diagnosed'];
+$encounter = $_POST['encounter'];
+$vaccinated = $_POST['vaccinated'];
+
+echo "$name <br> $nationality <br> $gender <br> $age <br> $mobile_no <br> $body_temp<br> $diagnosed <br> $encounter <br> $vaccinated <br>" ;
+
 ?>
