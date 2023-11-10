@@ -9,6 +9,12 @@ $diagnosed = $_POST['diagnosed'];
 $encounter = $_POST['encounter'];
 $vaccinated = $_POST['vaccinated'];
 
-echo "$name <br> $nationality <br> $gender <br> $age <br> $mobile_no <br> $body_temp<br> $diagnosed <br> $encounter <br> $vaccinated <br>" ;
 
+
+if (preg_match("/^[a-zA-z]+[a-zA-z]*$/", $name)) {
+  die("Please enter a real name like this -Firstname Lastname-");
+}
+
+
+echo "$name <br> $nationality <br> $gender <br> $age <br> $mobile_no <br> $body_temp<br> $diagnosed <br> $encounter <br> $vaccinated <br>";
 ?>
