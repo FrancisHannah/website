@@ -16,7 +16,7 @@
             <form method="post" action="backend.php">
                 <div class="d-flex justify-content-left p-3">
                         <label class="p-2" for="name">Name:</label>
-                        <input class="p-2" type="text" id="name" name="name" placeholder="Enter your name" required>
+                        <input class="p-2" type="text" id="name" name="name" placeholder="Enter your name" required >
                         <label class=" p-2" for="nationality">Nationality:</label>
                         <select class="col-sm-3 p-2" name="nationality" id="nationality" required>
                             <option value="-1" selected disabled>Select One</option>
@@ -42,7 +42,7 @@
                         <option value="65+ yrs old">65+ yrs old</option>
                     </select>
                     <label class="p-2" for="mobile_no">Mobile No.:</label>
-                    <input class="p-2" type="number" id="mobile_no" name="mobile_no" placeholder="Enter your mobile number" required>
+                    <input class="p-2" type="tel" id="mobile_no" name="mobile_no" pattern="[+][0-9]{2}-[0-9]{10}" placeholder="+63-1234567890" required>
                 </div>
 
                 <div class="d-flex justify-content-left p-3">
@@ -60,7 +60,7 @@
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
-                    <label class="p-2" for="vaccinated  ">COVID-19 Vaccinated:</label>
+                    <label class="p-2" for="vaccinated">COVID-19 Vaccinated:</label>
                     <select class="p-2" name="vaccinated" id="vaccinated" required>
                         <option value="-1" selected disabled>Select One</option>
                         <option value="Yes">Yes</option>
