@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="style    sheet" href="style.css">
+    <title>COVID-19 DIAGNOSTIC FORM</title>
+</head>
+<body class="bg-success-subtle">
+    <div class="container">
+        <div class="h2 d-flex justify-content-center p-5">
+            COVID-19 DIAGNOSTIC FORM
+        </div>
+        <div class="d-flex justify-content-center p-3 border border-success rounded-2">
+            <form method="post" action="backend.php">
+                <div class="d-flex justify-content-center p-3">
+                    <p class="col-1 ">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name">
+                    </p>
+                    <p class="col-12 ">
+                        <label for="nationality">Nationality:</label>
+                        <input type="text" id="nationality" name="nationality" placeholder="Enter your nationality">
+                    <p>
+                </div>
+
+                <div class="d-flex justify-content-left p-3">
+                    <label for="gender">Gender:</label>
+                    <input type="radio" id="gender" name="gender">
+                    <input type="radio" id="gender" name="gender">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" placeholder="Enter your age">
+                    <label for="mobile_no">Mobile No.:</label>
+                    <input type="tel" id="mobile_no" placeholder="Enter your mobile number">
+                </div>
+
+                <div class="d-flex justify-content-left p-3">
+                    <label for="body_temp">Body Temp:</label>
+                    <input class="col-sm-1" type="text" id="body_temp" placeholder="Enter your body temp in C">
+                    <label>COVID-19 DIAGNOSED: (<label for="diagnosed_yes">YES</label>/<label for="diagnosed_no">No</label>)</label>
+                    <label for="diagnosed_yes">Yes</label>
+                    <input type="radio" id="diagnosed_yes" name="diagnosed">
+                    <label for="diagnosed_no">No</label>
+                    <input type="radio" id="diagnosed_no" name="diagnosed">
+                    <label>COVID-19 encounter: (<label for="encounter_yes">YES</label>/<label for="encounter_no">NO</label>)</label>
+                    <label for="encounter_yes">Yes</label>
+                    <input type="radio" id="encounter_yes" name="encounter">
+                    <label for="encounter_no">No</label>
+                    <input type="radio" id="encounter_no" name="encounter">
+                    <label>VACINATED: (<label for="vaccinated_yes">YES</label>/<label for="vaccinated_no">No</label>)</label>
+                    <label for="vaccinated_yes">Yes</label>
+                    <input type="radio" id="vaccinated_yes" name="vaccinated">
+                    <label for="vaccinated_no">No</label>
+                    <input type="radio" id="vaccinated_no" name="vaccinated">
+                </div>
+
+                <div class="d-flex justify-content-center p-3">
+                    <input type="submit" id="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
