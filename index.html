@@ -8,64 +8,85 @@
     <title>COVID-19 DIAGNOSTIC FORM</title>
 </head>
 <body class="bg-success-subtle">
-    <div class="container">
-        <div class="h2 d-flex justify-content-center p-5">
+    <div class="container bg-light" style="padding-left: 0; padding-right: 0;">
+
+        <div class="h2 d-flex justify-content-center p-5 bg-success">
             COVID-19 DIAGNOSTIC FORM
         </div>
-        <div class="d-flex justify-content-center p-3 border border-success rounded-2">
+
+        <div class="col-6 d-flex justify-content-center p-3 border border-success rounded-3  m-auto">
             <form method="post" action="backend.php">
-                <div class="d-flex justify-content-left p-3">
-                        <label class="p-2" for="name">Name:</label>
-                        <input class="p-2" type="text" id="name" name="name" placeholder="Enter your name" required >
-                        <label class=" p-2" for="nationality">Nationality:</label>
-                        <select class="col-sm-3 p-2" name="nationality" id="nationality" required>
-                            <option value="-1" selected disabled>Select One</option>
-                            <option value="Philippines">Philippines</option>
-                            <option value="Others">Others</option>
-                        </select>
+                <div class="row d-flex justify-content-center p-3" style="text-align: center; font-size: x-large;">
+                        <label class="p-2" for="name" style="text-align: center; font-size: x-large;">Name:</label>
+                        <input class="p-2" style="text-align: center;" type="text" id="name" name="name" placeholder="Enter your name" required >
                 </div>
 
-                <div class="d-flex justify-content-left p-3">
+                <div class="row d-flex justify-content-center p-3" style="text-align: center; font-size: x-large;">
+                    <label class="p-2" for="nationality">Nationality:</label>
+                    <select class="p-2" style="text-align: center;" name="nationality" id="nationality" required>
+                        <option value="-1" selected disabled>Select One</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+                <div class="row d-flex justify-content-center p-3" style="text-align: center; font-size: x-large;">
                     <label class="p-2" for="gender">Gender:</label>
-                    <select class="p-2" name="gender" id="gender" required>
+                    <select class="p-2" style="text-align: center;" name="gender" id="gender" required>
                         <option value="-1" selected disabled>Select One</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
+                </div>
+
+
+                <div class="row d-flex justify-content-center p-3" style="text-align: center; font-size: x-large;">
                     <label class="p-2" for="age">Age:</label>
-                    <select class="p-2" name="age" id="age" required>
+                    <select class="p-2" style="text-align: center;" name="age" id="age" required>
                         <option value="-1" selected disabled>Select One</option>
                         <option value="0 - 1 yr old">0 - 1 yr old</option>
                         <option value="2 - 12 yrs old">2 - 12 yrs old</option>
                         <option value="13 - 17 yrs old">13 - 17 yrs old</option>
                         <option value="18+ yrs old">18+ yrs old</option>
                         <option value="65+ yrs old">65+ yrs old</option>
-                    </select>
-                    <label class="p-2" for="mobile_no">Mobile No.:</label>
-                    <input class="p-2" type="tel" id="mobile_no" name="mobile_no" pattern="[+][0-9]{2}-[0-9]{10}" placeholder="+63-1234567890" required>
+                    </select>                    
                 </div>
 
-                <div class="d-flex justify-content-left p-3">
+
+                <div class="row d-flex justify-content-center p-3" style="text-align: center; font-size: x-large;">
+                    <label class="p-2" style="text-align: center;" for="mobile_no">Mobile No.:</label>
+                    <input class="p-2" style="text-align: center;" type="tel" id="mobile_no" name="mobile_no" pattern="[+][0-9]{2}-[0-9]{10}" placeholder="+63-1234567890" required>
+                </div>
+
+                <div class="row d-flex justify-content-center p-3" style="text-align: center; font-size: x-large;">
                     <label class="p-2" for="body_temp">Body Temp:</label>
-                    <input class="p-2" type="number" id="body_temp" name="body_temp" placeholder="Enter your body temp in C" required>
+                    <input class="p-2" style="text-align: center;" type="number" id="body_temp" name="body_temp" placeholder="Enter your body temp in C" required>   
+                </div>
+
+
+                <div class="row d-flex justify-content-center p-3" style="text-align: center; font-size: x-large;">
                     <label class="p-2" for="diagnosed">COVID-19 DIAGNOSED:</label>
-                    <select class="p-2" name="diagnosed" id="diagnosed" required>
+                    <select class="p-2" style="text-align: center;" name="diagnosed" id="diagnosed" required>
                         <option value="-1" selected disabled>Select One</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
-                    <label class="p-2" for="encounter">COVID-19 Encounter:</label>
-                    <select class="p-2" name="encounter" id="encounter" required>
-                        <option value="-1" selected disabled>Select One</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
+
                     <label class="p-2" for="vaccinated">COVID-19 Vaccinated:</label>
-                    <select class="p-2" name="vaccinated" id="vaccinated" required>
+                    <select class="p-2" style="text-align: center;" name="vaccinated" id="vaccinated" required>
                         <option value="-1" selected disabled>Select One</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
+                </div>
+
+                <div class="row d-flex justify-content-center p-3" style="text-align: center; font-size: x-large;">
+                    <label class="p-2" style="text-align: center;" for="encounter">COVID-19 Encounter:</label>
+                    <select class="p-2" style="text-align: center;" name="encounter" id="encounter" required>
+                        <option value="-1" selected disabled>Select One</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>                    
                 </div>
 
                 <div class="d-flex justify-content-center p-3">
@@ -73,6 +94,11 @@
                 </div>
             </form>
         </div>
+
+        <div class="h2 d-flex justify-content-center p-5 bg-success mt-8" style="margin-bottom: 8;margin-top: 8px;">
+            COVID-19 DIAGNOSTIC FORM
+        </div>
     </div>
 </body>
 </html>
+
