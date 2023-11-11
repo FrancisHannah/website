@@ -2,12 +2,18 @@
        function addGuest()
        {
               $.ajax({
-                  url: 'addusers.php',
+                  url: 'backend.php',
                   method: "POST",
-                  data: {			
-                    firstname: $("#firstname").val(),
-                    lastname: $("#lastname").val(),
-                    email: $("#email").val()
+                  data: {
+                         name: $("#name").val(),
+                         nationality: $("#nationality").val(),
+                         gender: $("#gender").val(),
+                         age: $("#age").val(),
+                         mobile_no: $("#mobile_no").val(),
+                         body_temp: $("#body_temp").val(),
+                         diagnosed: $("#diagnosed").val(),
+                         encounter: $("#encounter").val(),
+                         vaccinated: $("#vaccinated").val(),
                   },
                   dataType: "json",
                   success: function(result){
@@ -17,6 +23,7 @@
                       alert("Something went wrong!");
                       return;
                     }
+                     
                     $("#tabular").html(cformtable());
                     getallguest();          
                   }
