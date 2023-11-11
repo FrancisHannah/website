@@ -13,14 +13,14 @@
             COVID-19 DIAGNOSTIC FORM
         </div>
         <div class="d-flex justify-content-center p-3 border border-success rounded-2">
-            <form method="post" action="backend.php">
+            <form method="post" action="addusers.php">
                 <div class="d-flex justify-content-left p-3">
-                        <label class="p-2" for="name">Name:</label>
-                        <input class="p-2" type="text" id="name" name="name" placeholder="Enter your name" required >
+                        <label class="p-2" for="fullname">Name:</label>
+                        <input class="p-2" type="text" id="name" name="fullname" placeholder="Enter your name" required >
                         <label class=" p-2" for="nationality">Nationality:</label>
                         <select class="col-sm-3 p-2" name="nationality" id="nationality" required>
                             <option value="-1" selected disabled>Select One</option>
-                            <option value="Philippines">Philippines</option>
+                            <option value="Filipino">Filipino</option>
                             <option value="Others">Others</option>
                         </select>
                 </div>
@@ -69,10 +69,131 @@
                 </div>
 
                 <div class="d-flex justify-content-center p-3">
-                    <button class="btn btn-success" type="submit" id="submit">Save</button>
+                    <button class="btn btn-success" type="submit" id="submit" onclick="addGuest()">Save</button>
                 </div>
             </form>
         </div>
+        <div id="tabular" class="col"></div>
+        </div>
+        <div class="col"></div>
+        </div>
+            <a href="admin.html" id="admin">Admin Page</a>
+        </div>
     </div>
+    <script>
+        function addGuest()
+        {
+               $.ajax({
+                   url: 'addusers.php',
+                   method: "POST",
+                   data: {			
+                    fullname: $("#fullname").val(),
+                    nationality: $("#nationality").val(),
+                    gender: $("#gender").val(),
+                    age: $("#age").val(),
+                    mobile_no: $("#mobile_no").val(),
+                    body_temp: $("#body_temp").val(),
+                    diagnosed: $("#diagnosed").val(),
+                    encounter: $("#encounter").val(),
+                    vaccinated: $("#vaccinated").val()
+                   },
+                   dataType: "json",
+                   success: function(result){
+                     console.log(result);
+                     if (result.status != 'ok')
+                     {
+                       alert("Something went wrong!");
+                       return;
+                     }
+                     $("#tabular").html(cformtable());
+                     getallguest();          
+                   }
+                 });
+        }
+ 
+ 
+        function cformtable()
+   {
+     /*
+     name, gender, age, mobile no, body temp, covid-19 diagnosed(y/n), covid-19 encounter(y/n), 
+     vacinated(y/n), nationality
+     */
+     return '<div class="card-body">' + 
+           '<table id="tabentries" class="table table-bordered table-hover">' + 
+              '<thead>' + 
+                 '<tr>' + 
+                    '<th> Name </th>' + 
+                    '<th> Nationality </th>' + 
+                    '<th> Gender </th>' + 
+                    '<th> Age </th>' +
+                    '<th> Mobile Number</th>' +
+                    '<th> Body Temp °C </th>' +
+                    '<th> COVID-19 Diagnosed </th>' +
+                    '<th> COVID-19 Encounter </th>' +
+                    '<th> Vaccinated </th>' +
+                 '</tr>' + 
+               '</thead>' + 
+               '<tbody>' + 
+               '</tbody>' + 
+           '</table>' +
+           '<br />' +
+           '<div id="next"></div>' +
+       '</div>';
+   }
+ 
+   function cformtablerow(par_row)
+   {
+     $("#tabentries  tbody").append(
+              '<tr id="' + par_row.id + '">' + 
+                '<td>' + par_row.fullname + '</td>' + 
+                '<td>' + par_row.nationality + '</td>' + 
+                '<td>' + par_row.gender +'</td>' +
+                '<td>' + par_row.age + '</td>' +
+                '<td>' + par_row.mobile_no + '</td>' +
+                '<td>' + par_row.body_temp + '</td>' +
+                '<td>' + par_row.diagnosed + '</td>' +
+                '<td>' + par_row.encounter + '</td>' +
+                '<td>' + par_row.vaccinated + '</td>' + 
+                '</tr>'
+     );
+   }
+ 
+        function getallguest()
+        {
+         //[{"id":"6","firstname":"Perlita","lastname":"Bayabas","email":"perlita.bayabas@mainit.com"},
+         $.ajax({
+                 url: 'getallguests.php',
+                 method: "GET",
+                 data: {},
+                 dataType: "json",
+                 success: function(response){
+                   $.each(response, function(key, value){
+                     cformtablerow({    
+                                     id: value.id,
+                                     fullname: value.fullname,
+                                     nationality: value.nationality, 
+                                     gender: value.gender,
+                                     age: value.age,
+                                     mobile_no: value.mobile_no,
+                                     body_temp: value.body_temp,
+                                     diagnosed: value.diagnosed,
+                                     encounter: value.encounter,
+                                     vaccinated: value.vaccinated,
+                               }
+                         );
+                     
+                   });
+                 }		
+                 
+               });
+        }
+ 
+       function start()
+       {
+         $("#tabular").html(cformtable());
+         getallguest();
+       }
+       start();
+     </script>
 </body>
 </html>
