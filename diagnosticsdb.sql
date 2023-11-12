@@ -7,25 +7,25 @@
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+/* SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
+ */
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `diagnosticsdb`
---
+--  
+--  Database: `diagnosticsdb`
+--  
 
 DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `addusers` (IN `par_name` VARCHAR(30), IN `par_nationality` VARCHAR(30), IN `par_gender` VARCHAR(50), IN `par_age` VARCHAR(30), IN `par_mobile_no` VARCHAR(30), IN `par_body_temp` INT(30), IN `par_diagnosed` VARCHAR(30), IN `par_encounter` VARCHAR(30), IN `par_vaccinated` VARCHAR(30))   BEGIN
+--  
+--  Procedures
+--  
+CREATE PROCEDURE `addusers` (IN `par_name` VARCHAR(30), IN `par_nationality` VARCHAR(30), IN `par_gender` VARCHAR(30), IN `par_age` INT(30), IN `par_mobile_no` VARCHAR(30), IN `par_body_temp` INT(30), IN `par_diagnosed` VARCHAR(30), IN `par_encounter` VARCHAR(30), IN `par_vaccinated` VARCHAR(30))   BEGIN
 
   INSERT INTO 
       `MyGuests` (`fullname`, `nationality`, `gender`, `age`, `mobile_no`, `body_temp`, `diagnosed`, `encounter`, `vaccinated`)
@@ -34,24 +34,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `addusers` (IN `par_name` VARCHAR(30
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `fetch_guests` ()   BEGIN
+CREATE PROCEDURE `fetch_guests` ()   BEGIN
 
 SELECT * FROM `MyGuests`;
 
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `users_from_email` (IN `par_email_co` VARCHAR(50))   BEGIN
-SELECT * FROM `MyGuests`
-WHERE 
-   `email` like concat('%', par_email_co);
 END$$
 
 DELIMITER ;
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `myguests`
+--  
+--  Table structure for table `myguests`
 --
 
 CREATE TABLE `myguests` (
@@ -92,8 +86,7 @@ ALTER TABLE `myguests`
 --
 -- AUTO_INCREMENT for table `myguests`
 --
-ALTER TABLE `myguests`
-  MODIFY `id` int(30) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `myguests` 
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

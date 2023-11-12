@@ -1,11 +1,5 @@
 <?php
-   $dbhost = 'localhost';
-   $dbname = 'diagnosticsdb';
-   $dbusername = 'root';
-   $dbpassword = '';
-   
-   $connection = mysqli_connect($dbhost,$dbusername,$dbpassword,$dbname);
-
+   include 'connection.php';
    $result = mysqli_query($connection,"call fetch_guests");
 
    $email_array = array();

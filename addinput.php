@@ -1,10 +1,5 @@
 <?php
-   $dbhost = 'localhost';
-	$dbname = 'diagnosticsdb';
-	$dbusername = 'root';
-	$dbpassword = '';
-	
-	$connection = mysqli_connect($dbhost,$dbusername,$dbpassword,$dbname);
+   include 'connection.php';
    header('Content-type: application/json');
 
 
@@ -18,7 +13,7 @@
    $encounter = $_POST['encounter'];
    $vaccinated = $_POST['vaccinated'];
 
-   if (!preg_match ('"^([a-zA-Z]+\s)*[a-zA-Z]+$"', $fullname) ) {  
+    if (!preg_match ('"^([a-zA-Z]+\s)*[a-zA-Z]+$"', $fullname) ) {  
       die ('Please enter only alphabets!');
    } 
 
@@ -40,7 +35,7 @@
 
    if (!is_numeric ($mobile_no) ) {  
       die ('Please enter only numbers!');
-   } 
+   }  
 
    $result = array(
       "status"=>"error",
