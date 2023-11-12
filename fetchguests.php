@@ -1,0 +1,25 @@
+<?php
+   $dbhost = 'localhost';
+   $dbname = 'diagnosticsdb';
+   $dbusername = 'root';
+   $dbpassword = '';
+   
+   $connection = mysqli_connect($dbhost,$dbusername,$dbpassword,$dbname);
+
+   $result = mysqli_query($connection,"call fetch_guests");
+
+   $email_array = array();
+
+   while($row = mysqli_fetch_assoc($result))
+	{
+		$email_array[] = $row;
+	}
+
+	//close the database
+	mysqli_close($connection);
+
+	header('Content-type: application/json');
+    echo json_encode($email_array);
+
+
+?>
